@@ -7,6 +7,12 @@ const PORT = config.get("PORT") || 8080;
 const DB_URL = config.get("DB_URL")
 
 
+// Imported Routes
+const cardsRoute = require("./routes/cardsRouter")
+
+// Middleware
+app.use("/cards", cardsRoute)
+
 // Routes
 app.get("/", (req, res) => {
     res.send("We are on START route")
