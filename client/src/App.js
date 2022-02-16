@@ -1,4 +1,8 @@
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { FetchMongoData } from "./hooks/request";
+import Layout from './components/common/Layout';
+import "./assets/scss/style.scss"
 
 const App = () => {
   const { loading, error, request } = FetchMongoData()
@@ -12,7 +16,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <button onClick={getMongoData}>test</button>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {/* <Route path="playlist" element={<PlayListPage />} />
+          <Route path="player" element={<PlayerPage />} /> */}
+        </Route>
+      </Routes>
     </div>
   );
 }
