@@ -18,13 +18,13 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className='page'>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="searchpage" element={<SearchPage />} />
-          <Route path="createpage" element={<CreatePage />} />
-        </Route>
-      </Routes>
+      <div className="page">
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="searchpage" element={<SearchPage />} />
+            <Route path="createpage" element={<CreatePage />} />
+          </Route>
+        </Routes>
       </div>
     </div>
   );

@@ -1,9 +1,12 @@
 .header {
+    flex: 0 0 auto;
     padding: 20px 0;
+    background-color: antiquewhite;
 }
 
 .nav {
     display: flex;
+    justify-content: space-between;
     :not(:last-child) {
         margin: 0 20px 0 0;
     }

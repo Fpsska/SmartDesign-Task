@@ -1,0 +1,13 @@
+.form {
+    position: relative;
+    width: 400px;
+    &__input {
+        width: 100%;
+        padding: 5px 60px 5px 10px;
+    }
+    &__button {
+        position: absolute;
+        right: 0;
+        height: 100%;
+    }
+}
