@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Card from "./Card";
 import "./card.scss";
 
 const CardList = ({ sortedItems }) => {
-  const list = sortedItems.map((item) => {
+  const list = useMemo(() => sortedItems.map((item) => {
     return <Card key={item.id} name={item.name} price={item.price} />;
-  });
+  }), [sortedItems]);
 
-  return <div className="search__list">{list}</div>;
+  return <>{list}</>;
 };
 
 export default CardList;

@@ -14,7 +14,9 @@ export const FetchMongoData = () => {
                 throw new Error(data.message || "Somthing wrong")
             }
 
-            setLoading(false)
+            setTimeout(() => {
+                setLoading(false)
+            }, 1300);
             return data
 
         } catch (error) {

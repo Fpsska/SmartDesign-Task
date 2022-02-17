@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Form from "../form/Form";
 import CardList from "../card/CardList";
+import Preloader from "../common/preloader/Preloader";
 import { FetchMongoData } from "../../hooks/request";
 import { useFilter } from "../../hooks/filter";
 
@@ -14,7 +15,7 @@ const SearchPage = () => {
     try {
       const data = await request("GET", "http://localhost:8080/cards");
       setData(data);
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const { enteredSearchValue, setEnteredSearchValue, sortedItems } = useFilter(
@@ -30,11 +31,18 @@ const SearchPage = () => {
     <div className="search">
       <div className="search__wrapper">
         <h1 className="title">SEARCH PAGE</h1>
-        <Form
+        <Form 
           enteredSearchValue={enteredSearchValue}
           setEnteredSearchValue={setEnteredSearchValue}
+          loading={loading}
         />
-        <CardList sortedItems={sortedItems} />
+        <div className="search__list">
+          {loading ?
+            <Preloader />
+            :
+            <CardList sortedItems={sortedItems} />
+          }
+        </div>
       </div>
     </div>
   );
