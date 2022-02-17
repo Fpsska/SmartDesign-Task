@@ -1,13 +1,19 @@
 import React from "react";
-import "./form.scss"
+import "./form.scss";
 
-const Form = () => {
-    return (
-        <form className="form" action="#">
-            <input className="form__input" type="text" placeholder="Search..." />
-            <button className="form__button">submit</button>
-        </form>
-    )
-}
+const Form = ({ enteredSearchValue, setEnteredSearchValue }) => {
+  return (
+    <form className="form" action="#">
+      <input
+        className="form__input"
+        type="text"
+        placeholder="Search..."
+        value={enteredSearchValue.trim()}
+        onChange={(e) => setEnteredSearchValue(e.target.value)}
+      />
+      <button className="form__button">submit</button>
+    </form>
+  );
+};
 
 export default Form;

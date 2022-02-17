@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    width: 0;
+}
+
 body {
     background-color: rgba(255, 255, 255, 0.849);
     color: #000;
@@ -77,5 +81,7 @@ input {
         display: flex;
         flex-wrap: wrap;
         margin: 0 -16px;
+        min-height: 550px;
+        overflow-y: scroll;
     }
 }
