@@ -47,20 +47,35 @@ input {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1220px;
     margin: 0 auto;
+    padding: 0 10px;
     height: 100%;
 }
 .container--small {
     @extend .container;
-    max-width: 900px;
+    max-width: 920px;
+    padding: 0 10px;
+}
+
+.title {
+    margin: 0;
+    text-transform: uppercase;
 }
 
 .search {
+    height: 100%;
+    padding: 25px 0 15px 0;
     &__wrapper {
+        height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -16px;
     }
 }
