@@ -7,7 +7,7 @@ export function useFilter(items, filterProp) {
 
     const sortedItems = currentSearchValue
         ? items.filter((item) =>
-            RegExp(currentSearchValue, "i").test(item[filterProp].trim())
+            RegExp(currentSearchValue, "i").test(item[filterProp])
         )
         : items
 

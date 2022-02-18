@@ -9,8 +9,8 @@ const Form = ({ enteredSearchValue, setEnteredSearchValue, loading }) => {
         type="text"
         placeholder="Search..."
         disabled={loading ? true : ""}
-        value={enteredSearchValue.trim()}
-        onChange={(e) => setEnteredSearchValue(e.target.value)}
+        value={enteredSearchValue}
+        onChange={(e) => setEnteredSearchValue(e.target.value.trim())}
       />
       <button className="form__button" disabled={loading ? true : ""}>submit</button>
     </form>

@@ -4,7 +4,7 @@ import "./card.scss";
 
 const CardList = ({ sortedItems }) => {
   const list = useMemo(() => sortedItems.map((item) => {
-    return <Card key={item.id} name={item.name} price={item.price} />;
+    return <Card key={item._id} name={item.name} price={item.price} preview={item.preview} />;
   }), [sortedItems]);
 
   return <>{list}</>;
