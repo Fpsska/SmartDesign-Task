@@ -1,9 +1,8 @@
 .modal {
     width: 500px;
     padding: 50px;
+    top: 35%;
     position: absolute;
-    top: 50%;
-    left: 50%;
     background-color: rgb(136, 134, 134);
     &__wrapper {
         display: flex;

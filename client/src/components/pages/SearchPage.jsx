@@ -31,7 +31,7 @@ const SearchPage = () => {
     <div className="search">
       <div className="search__wrapper">
         <h1 className="title">SEARCH PAGE</h1>
-        <Form 
+        <Form
           enteredSearchValue={enteredSearchValue}
           setEnteredSearchValue={setEnteredSearchValue}
           loading={loading}
