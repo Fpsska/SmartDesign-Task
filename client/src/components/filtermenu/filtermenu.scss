@@ -1,0 +1,16 @@
+.filter {
+    width: 300px;
+    padding: 10px;
+    &__column {
+        display: flex;
+        flex-direction: column;
+    }
+    &__option {
+        &:not(:last-child) {
+            margin: 0 0 5px 0;
+        }
+    }
+    &__radio {
+        margin: 0 10px 0 0;
+    }
+}
