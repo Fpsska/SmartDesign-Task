@@ -11,9 +11,10 @@ const SearchPage = () => {
   const { loading, error, request } = FetchMongoData();
   const [data, setData] = useState([]);
 
+  console.log(error);
   const getMongoData = async () => {
     try {
-      const data = await request("GET", "http://localhost:8080/cards");
+      const data = await request("GET", "https://backend-smart-design-task.herokuapp.com/cards");
       setData(data);
     } catch (error) { }
   };
@@ -40,7 +41,9 @@ const SearchPage = () => {
           {loading ?
             <Preloader />
             :
-            <CardList sortedItems={sortedItems} />
+            error ? <h2 className="error">{`Error: ${error}`}</h2>
+              :
+              <CardList sortedItems={sortedItems} />
           }
         </div>
       </div>

@@ -16,7 +16,7 @@ const Modal = ({ isVisible, setVisibleStatus }) => {
     const addGood = async () => {
         const newItem = { name, price, preview }
         try {
-            const data = await request("POST", "http://localhost:8080/cards", newItem)
+            const data = await request("POST", "https://backend-smart-design-task.herokuapp.com/cards", newItem)
             console.log(data)
             console.log("New Item Added!")
         } catch (error) { }
