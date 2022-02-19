@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const config = require("config")
 const app = express()
 
-const PORT = config.get("PORT") || 8080;
+const PORT = process.env.PORT || 8080;
 const DB_URL = config.get("DB_URL")
 
 
@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 const startServer = () => {
     try {
         mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, console.log("Connected to MongoDB"))
-        app.listen(PORT, () => console.log((`App has been started on port ${PORT}`)))
+        app.listen(PORT, () => console.log((`Server has been started on port ${PORT}`)))
     } catch (error) {
         res.json({ message: error.message })
     }

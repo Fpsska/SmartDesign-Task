@@ -1,4 +1,3 @@
 {
-    "PORT": 8080,
     "DB_URL": "mongodb+srv://Fpsska:8ggDg6T4AusBNA-@cluster0.v6cdd.mongodb.net/graphicsCards?retryWrites=true&w=majority"
 }
