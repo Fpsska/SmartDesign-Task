@@ -13,6 +13,7 @@ const SearchPage = () => {
 
   const getMongoData = async () => {
     try {
+      // http://localhost:8080/cards
       const data = await request("GET", "https://backend-smart-design-task.herokuapp.com/cards");
       setData(data);
     } catch (error) { }

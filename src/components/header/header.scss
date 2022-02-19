@@ -10,4 +10,10 @@
     :not(:last-child) {
         margin: 0 20px 0 0;
     }
+    &__link {
+        color: #000;
+    }
+}
+.nav__link.active {
+    color: rgb(55, 138, 233);
 }

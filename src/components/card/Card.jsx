@@ -1,10 +1,9 @@
 import React from "react";
-import imageTest from "../../assets/images/no-photo.jpg";
 import "./card.scss"
 
-const Card = ({name, price, preview}) => {
+const Card = ({name, price, preview, manufacturer, brand}) => {
   return (
-    <div className="card">
+    <div className="card" data-manufacturer={manufacturer} data-brand={brand}>
       <img className="card__image" src={preview} alt="card" />
       <ul className="card__information information">
         <li className="information__name">name: {name}</li>
