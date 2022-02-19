@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
   "author": "Fpsska",
   "license": "ISC",
   "dependencies": {
@@ -11,6 +15,7 @@
     "mongoose": "^6.2.1"
   },
   "devDependencies": {
+    "concurrently": "^7.0.0",
     "nodemon": "^2.0.15"
   },
   "engines": {
