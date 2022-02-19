@@ -1,0 +1,20 @@
+{
+  "name": "smart-design-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "author": "Fpsska",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.7",
+    "express": "^4.17.2",
+    "mongoose": "^6.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
