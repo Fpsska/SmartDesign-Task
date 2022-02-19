@@ -12,6 +12,14 @@ const CardSchema = new mongoose.Schema({
     preview: {
         type: String,
         required: true
+    },
+    manufacturer: {
+        type: String,
+        required: true
+    },
+    brand: {
+        type: String,
+        required: true
     }
 })
 
