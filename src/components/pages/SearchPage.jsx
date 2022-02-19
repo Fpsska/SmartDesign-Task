@@ -11,7 +11,6 @@ const SearchPage = () => {
   const { loading, error, request } = FetchMongoData();
   const [data, setData] = useState([]);
 
-  console.log(error);
   const getMongoData = async () => {
     try {
       const data = await request("GET", "https://backend-smart-design-task.herokuapp.com/cards");
