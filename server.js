@@ -18,7 +18,9 @@ app.use((req, res, next) => {
     next()
 });
 
+
 // Middleware
+app.use(express.json({ extended: true }))
 app.use("/cards", cardsRoute)
 
 // Routes

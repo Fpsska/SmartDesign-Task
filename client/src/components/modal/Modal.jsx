@@ -1,15 +1,30 @@
 import React, { useState } from "react";
 import { Spring, animated } from "react-spring";
+import { FetchMongoData } from "../../hooks/request";
 import "./modal.scss"
 
 const Modal = ({ isVisible, setVisibleStatus }) => {
-
     const [name, setName] = useState("")
     const [price, setPrice] = useState("");
-    const [file, setFile] = useState(null);
+    const [preview, setPreview] = useState("");
+    const { loading, error, request } = FetchMongoData()
 
     const selectFile = (e) => {
-        setFile(e.target.files[0])
+        setPreview(e.target.files[0].name)
+    }
+
+    const addGood = async () => {
+        const newItem = { name, price, preview }
+        try {
+            const data = await request("POST", "http://localhost:8080/cards", newItem)
+            console.log(data)
+            console.log("New Item Added!")
+        } catch (error) { }
+        setVisibleStatus(false)
+    }
+
+    const closeModal = () => {
+        setVisibleStatus(false)
     }
 
     return (
@@ -33,8 +48,8 @@ const Modal = ({ isVisible, setVisibleStatus }) => {
                             </div>
 
                             <div className="modal__nav">
-                                <button className="modal__button modal__button--add">Добавить</button>
-                                <button className="modal__button modal__button--close" onClick={() => { setVisibleStatus(false) }}>Закрыть</button>
+                                <button className="modal__button modal__button--add" onClick={addGood}>Добавить</button>
+                                <button className="modal__button modal__button--close" onClick={closeModal}>Закрыть</button>
                             </div>
 
                         </div>

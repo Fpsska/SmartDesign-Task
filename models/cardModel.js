@@ -1,13 +1,17 @@
 const mongoose = require("mongoose")
 
-const CardSchema = mongoose.Schema({
+const CardSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: false
+        required: true
     },
     price: {
         type: String,
-        required: false
+        required: true
+    },
+    preview: {
+        type: String,
+        required: true
     }
 })
 
