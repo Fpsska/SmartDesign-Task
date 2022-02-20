@@ -11,7 +11,7 @@ const App = () => {
     <div className="App">
       <div className="page">
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/SmartDesign-Task" element={<Layout />}>
             <Route index element={<SearchPage />} />
             <Route path="createpage" element={<CreatePage />} />
           </Route>

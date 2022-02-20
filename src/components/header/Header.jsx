@@ -8,12 +8,12 @@ const Header = () => {
       <div className="container container--small">
         <ul className="header__nav nav">
           <li className="nav__item">
-            <NavLink className="nav__link" to="/">
+            <NavLink className="nav__link" to="/SmartDesign-Task">
               Search Page
             </NavLink>
           </li>
           <li className="nav__item">
-            <NavLink className="nav__link" to="/createpage">
+            <NavLink className="nav__link" to="createpage">
               Create Page
             </NavLink>
           </li>
