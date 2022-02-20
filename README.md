@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### `Watch demo` _[SmartDesign-Task](https://fpsska.github.io/SmartDesign-Task)_
+
+Guideline for launch:
+1. use `git clone https://github.com/Fpsska/SmartDesign-Task.git` in terminal console your PC in any folder
+2. open cloned project folder with any code editor
+3. use `npm install` in terminal console of code editor  for download all dependencies
+4. use `npm start` in terminal console of code editor  for start React App
+
 ## Available Scripts
 
 In the project directory, you can run:
