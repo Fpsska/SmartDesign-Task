@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { FetchMongoData } from "../../hooks/request";
-
-import FilterMenu from "../filtermenu/FilterMenu";
+import FilterMenu from "../common/filtermenu/FilterMenu";
 import "./createform.scss";
 
 const CreateForm = () => {
@@ -30,7 +29,6 @@ const CreateForm = () => {
       const newItem = { name, price, preview, manufacturer, brand };
       console.log(newItem);
       try {
-        //  https://backend-smart-design-task.herokuapp.com/cards http://localhost:8080/cards
         const data = await request(
           "POST",
           "https://backend-smart-design-task.herokuapp.com/cards",

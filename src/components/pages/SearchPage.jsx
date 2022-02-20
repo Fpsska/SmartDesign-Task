@@ -6,7 +6,7 @@ import { useFilter } from "../../hooks/filter";
 import Input from "../common/input/Input";
 import CardList from "../card/CardList";
 import Preloader from "../common/preloader/Preloader";
-import FilterMenu from "../filtermenu/FilterMenu";
+import FilterMenu from "../common/filtermenu/FilterMenu";
 
 
 const SearchPage = () => {
@@ -22,7 +22,6 @@ const SearchPage = () => {
 
   const getMongoData = async () => {
     try {
-      // https://backend-smart-design-task.herokuapp.com/cards http://localhost:8080/cards
       const data = await request("GET", "https://backend-smart-design-task.herokuapp.com/cards");
       setData(data);
     } catch (error) { }

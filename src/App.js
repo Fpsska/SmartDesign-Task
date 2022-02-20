@@ -4,6 +4,7 @@ import Layout from './components/common/Layout';
 import SearchPage from './components/pages/SearchPage';
 import CreatePage from './components/pages/CreatePage';
 import "./assets/scss/style.scss"
+import "./assets/scss/media.scss"
 
 const App = () => {
   return (
