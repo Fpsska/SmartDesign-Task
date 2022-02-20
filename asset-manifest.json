@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/SmartDesign-Task/static/css/main.c6d71a5c.css",
-    "main.js": "/SmartDesign-Task/static/js/main.d9959894.js",
+    "main.css": "/SmartDesign-Task/static/css/main.5afdc202.css",
+    "main.js": "/SmartDesign-Task/static/js/main.f04bcf80.js",
     "static/js/787.c4e7f8f9.chunk.js": "/SmartDesign-Task/static/js/787.c4e7f8f9.chunk.js",
     "index.html": "/SmartDesign-Task/index.html",
-    "main.c6d71a5c.css.map": "/SmartDesign-Task/static/css/main.c6d71a5c.css.map",
-    "main.d9959894.js.map": "/SmartDesign-Task/static/js/main.d9959894.js.map",
+    "main.5afdc202.css.map": "/SmartDesign-Task/static/css/main.5afdc202.css.map",
+    "main.f04bcf80.js.map": "/SmartDesign-Task/static/js/main.f04bcf80.js.map",
     "787.c4e7f8f9.chunk.js.map": "/SmartDesign-Task/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c6d71a5c.css",
-    "static/js/main.d9959894.js"
+    "static/css/main.5afdc202.css",
+    "static/js/main.f04bcf80.js"
   ]
 }
