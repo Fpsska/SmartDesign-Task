@@ -1,0 +1,23 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    padding: 10px 0 10px 10px;
+    margin: 0 0 0 auto;
+    &__option {
+        &:not(:last-child) {
+            margin: 0 0 5px 0;
+        }
+    }
+    &__radio {
+        margin: 0 5px 0 0;
+    }
+    &__title {
+        margin: 18px 0;
+    }
+    &__button {
+        margin: 20px 0 0 0;
+        border: 1px solid #000;
+        background-color: transparent;
+    }
+}

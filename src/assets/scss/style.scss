@@ -85,19 +85,27 @@ button {
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        // justify-content: space-between;
         align-items: center;
     }
     &__list {
         display: flex;
         flex-wrap: wrap;
         min-height: 550px;
+        max-height: 555px;
         overflow-y: scroll;
+        flex-grow: 1;
     }
     &__form {
         max-width: 400px;
         width: 100%;
         margin: 20px 0;
+    }
+    &__section {
+        width: 100%;
+        margin: 50px 0 0 0;
+        display: flex;
+        align-items: flex-start;
     }
 }
 
