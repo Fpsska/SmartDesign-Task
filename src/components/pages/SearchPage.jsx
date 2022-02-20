@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import Form from "../form/Form";
+import Input from "../common/input/Input";
 import CardList from "../card/CardList";
 import Preloader from "../common/preloader/Preloader";
 import { FetchMongoData } from "../../hooks/request";
@@ -13,7 +13,7 @@ const SearchPage = () => {
 
   const getMongoData = async () => {
     try {
-      // http://localhost:8080/cards
+      // https://backend-smart-design-task.herokuapp.com/cards http://localhost:8080/cards
       const data = await request("GET", "https://backend-smart-design-task.herokuapp.com/cards");
       setData(data);
     } catch (error) { }
@@ -32,11 +32,13 @@ const SearchPage = () => {
     <div className="search">
       <div className="search__wrapper">
         <h1 className="title">SEARCH PAGE</h1>
-        <Form
-          enteredSearchValue={enteredSearchValue}
-          setEnteredSearchValue={setEnteredSearchValue}
-          loading={loading}
-        />
+        <form className="search__form" action="">
+          <Input
+            enteredSearchValue={enteredSearchValue}
+            setEnteredSearchValue={setEnteredSearchValue}
+            loading={loading}
+          />
+        </form>
         <div className="search__list">
           {loading ?
             <Preloader />

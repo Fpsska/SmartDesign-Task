@@ -1,4 +1,4 @@
-.filter {
+.create-from {
     width: 300px;
     padding: 10px;
     &__column {
@@ -18,5 +18,14 @@
     }
     &__input--file {
         padding: 0;
+    }
+    &__button {
+        background-color: rgb(161, 161, 161);
+        border: none;
+        border-radius: 2px;
+        padding: 10px 15px;
+        margin: 50px 0 0 0;
+        width: 100%;
+        cursor: pointer;
     }
 }

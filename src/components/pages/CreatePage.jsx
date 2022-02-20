@@ -1,16 +1,13 @@
 import React from "react";
-import { useState } from "react";
-import FilterMenu from "../filtermenu/FilterMenu";
+import CreateForm from "../createform/CreateForm";
 
 const CreatePage = () => {
-    const [isVisible, setVisibleStatus] = useState(false);
-
     return (
         <div className="create">
             <div className="create__wrapper">
                 <h1 className="title">CREATE PAGE</h1>
                 <div className="create__section">
-                    <FilterMenu isVisible={isVisible} setVisibleStatus={setVisibleStatus} />
+                    <CreateForm />
                 </div>
             </div>
         </div>
