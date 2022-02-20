@@ -45,7 +45,7 @@ const CreateForm = () => {
     setName("");
     setPrice("");
     setPreview("");
-    alert("New good is successfully added");
+    alert("New good is successfully added! See Search Page!");
   };
 
   return (
