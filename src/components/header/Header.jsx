@@ -8,7 +8,7 @@ const Header = () => {
       <div className="container container--small">
         <ul className="header__nav nav">
           <li className="nav__item">
-            <NavLink className="nav__link" to="/SmartDesign-Task">
+            <NavLink className="nav__link" to="/SmartDesign-Task/">
               Search Page
             </NavLink>
           </li>
