@@ -1,67 +1,57 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
-import { useEffect } from "react";
-import { FetchMongoData } from "../../hooks/request";
+
 import { useFilter } from "../../hooks/filter";
+
 import Input from "../common/input/Input";
 import CardList from "../card/CardList";
 import Preloader from "../common/preloader/Preloader";
 import FilterMenu from "../common/filtermenu/FilterMenu";
 
 
-const SearchPage = () => {
-  const [manufacturer, setManufacturer] = useState("")
-  const [brand, setBrand] = useState("")
-  const { loading, error, request } = FetchMongoData();
+const SearchPage = ({ loading, error, data }) => {
 
-  const [data, setData] = useState([]);
-  const [filtederData, setfiltederData] = useState(data)
-  const [isFiltered, setFilteredStatus] = useState(false)
+  const [setManufacturer] = useState("");
+  const [setBrand] = useState("");
 
-  const filterForm = useRef(null)
+  const [filtederData, setfiltederData] = useState(data);
+  const [isFiltered, setFilteredStatus] = useState(false);
 
-  const getMongoData = async () => {
-    try {
-      const data = await request("GET", "https://backend-smart-design-task.herokuapp.com/cards");
-      setData(data);
-    } catch (error) { }
-  };
+  const filterForm = useRef(null);
 
-  const { enteredSearchValue, setEnteredSearchValue, sortedItems } = useFilter(
-    data, "name"
-  );
+  const {
+    enteredSearchValue,
+    setEnteredSearchValue,
+    sortedItems
+  } = useFilter(data, "name");
+
 
 
   const sortByManufacturer = (sortArg) => {
     if (sortArg === "nvidia" || sortArg === "amd") {
-      let dataManufacturer = [...data].filter(item => item.manufacturer === sortArg)
-      setfiltederData(dataManufacturer)
-      setFilteredStatus(true)
+      let dataManufacturer = [...data].filter(item => item.manufacturer === sortArg);
+      setfiltederData(dataManufacturer);
+      setFilteredStatus(true);
     } else {
-      setfiltederData(sortedItems)
+      setfiltederData(sortedItems);
     }
   }
 
   const sortByBrand = (sortArg) => {
     if (sortArg === "msi" || sortArg === "palit" || sortArg === "evga" || sortArg === "asus" || sortArg === "gigabyte" || sortArg === "asrock") {
-      let dataBrand = [...data].filter(item => item.brand === sortArg)
-      setfiltederData(dataBrand)
-      setFilteredStatus(true)
+      let dataBrand = [...data].filter(item => item.brand === sortArg);
+      setfiltederData(dataBrand);
+      setFilteredStatus(true);
     } else {
-      setfiltederData(sortedItems)
+      setfiltederData(sortedItems);
     }
   }
 
   const resetFilters = (e) => {
     e.preventDefault();
-    setFilteredStatus(false)
+    setFilteredStatus(false);
     filterForm.current.reset();
   }
-
-  useEffect(() => {
-    getMongoData();
-  }, []);
-
 
   return (
     <div className="search">
@@ -85,7 +75,12 @@ const SearchPage = () => {
             }
           </div>
           <form className="filter" action="" onSubmit={resetFilters} ref={filterForm}>
-            <FilterMenu loading={loading} setManufacturer={setManufacturer} setBrand={setBrand} sortByManufacturer={sortByManufacturer} sortByBrand={sortByBrand} />
+            <FilterMenu
+              loading={loading}
+              setManufacturer={setManufacturer}
+              setBrand={setBrand} sortByManufacturer={sortByManufacturer}
+              sortByBrand={sortByBrand}
+            />
           </form>
         </div>
       </div>

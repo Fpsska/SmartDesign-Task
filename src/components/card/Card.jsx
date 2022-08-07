@@ -1,22 +1,16 @@
-import React, { useState, useEffect } from "react";
-import placeholderIMG from "../../assets/images/no-photo.jpg"
-import "./card.scss"
+import React from "react";
+
+import placeholderIMG from "../../assets/images/no-photo.jpg";
+
+import "./card.scss";
 
 const Card = ({ name, price, preview, manufacturer, brand }) => {
-  const [image, setImage] = useState(placeholderIMG)
-
-  useEffect(() => {
-    if (preview.length > 15) {
-      setImage(preview)
-    }
-  }, [preview])
-
   return (
     <div className="card" data-manufacturer={manufacturer} data-brand={brand}>
       <img
         className="card__image"
-        src={image}
-        alt="card"
+        src={preview ? preview : placeholderIMG}
+        alt="goods-img"
         onError={e => {
           e.target.src = placeholderIMG;
           e.onerror = null;
