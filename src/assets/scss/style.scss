@@ -17,6 +17,7 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
+    overflow: hidden;
 }
 
 ul,
@@ -57,16 +58,16 @@ button {
 }
 
 .container {
-    max-width: 1220px;
-    margin: 0 auto;
+    max-width: 1360px;
     padding: 0 10px;
+    margin: 0 auto;
     height: 100%;
 }
-.container--small {
-    @extend .container;
-    max-width: 920px;
-    padding: 0 10px;
-}
+// .container--small {
+//     @extend .container;
+//     max-width: 920px;
+//     padding: 0 10px;
+// }
 
 .title {
     margin: 0;
@@ -94,8 +95,7 @@ button {
     &__list {
         display: flex;
         flex-wrap: wrap;
-        min-height: 550px;
-        max-height: 555px;
+        height: calc(100vh - 60px - 65px - 87px - 130px);
         overflow-y: scroll;
         flex-grow: 1;
     }
@@ -109,6 +109,7 @@ button {
         margin: 50px 0 0 0;
         display: flex;
         align-items: flex-start;
+        position: relative;
     }
 }
 
@@ -127,4 +128,12 @@ button {
         display: flex;
         flex-direction: column;
     }
+}
+
+.aside {
+    position: relative;
+}
+.aside.absolute {
+    position: absolute;
+    right: 0;
 }

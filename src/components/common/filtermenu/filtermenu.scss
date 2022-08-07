@@ -1,8 +1,6 @@
 .filter {
     display: flex;
     flex-direction: column;
-    flex-grow: 0;
-    padding: 10px 0 10px 10px;
     margin: 0 0 0 auto;
     &__option {
         &:not(:last-child) {

@@ -74,14 +74,16 @@ const SearchPage = ({ loading, error, data }) => {
                 <CardList data={isFiltered ? filtederData : sortedItems} />
             }
           </div>
-          <form className="filter" action="" onSubmit={resetFilters} ref={filterForm}>
-            <FilterMenu
-              loading={loading}
-              setManufacturer={setManufacturer}
-              setBrand={setBrand} sortByManufacturer={sortByManufacturer}
-              sortByBrand={sortByBrand}
-            />
-          </form>
+          <div className={loading ? 'aside absolute' : 'aside'}>
+            <form className="filter" onSubmit={resetFilters} ref={filterForm}>
+              <FilterMenu
+                loading={loading}
+                setManufacturer={setManufacturer}
+                setBrand={setBrand} sortByManufacturer={sortByManufacturer}
+                sortByBrand={sortByBrand}
+              />
+            </form>
+          </div>
         </div>
       </div>
     </div>
