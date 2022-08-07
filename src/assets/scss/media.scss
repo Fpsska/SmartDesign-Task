@@ -11,9 +11,11 @@
     .search__list {
         order: 1;
         width: 100%;
+        height: calc(100vh - 420px);
     }
     .aside {
         width: 100%;
+        order: -1;
     }
     .filter__column {
         display: flex;
@@ -42,6 +44,9 @@
 }
 
 @media screen and (max-width: 600px) {
+    .header {
+        padding: 15px 0 20px 0;
+    }
     .filter__column {
         flex-direction: column;
         align-items: flex-start;
@@ -56,5 +61,14 @@
     }
     .card {
         flex: 1 1 calc(100% - 3rem);
+    }
+    .search__list {
+        height: calc(100vh - 500px);
+    }
+    .search__section {
+        margin: 0;
+    }
+    .footer {
+        display: none;
     }
 }

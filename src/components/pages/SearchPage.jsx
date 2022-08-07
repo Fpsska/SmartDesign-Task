@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import { useState } from "react";
 
 import { useFilter } from "../../hooks/filter";
@@ -13,6 +13,7 @@ const SearchPage = ({ loading, error, data }) => {
 
   const [setManufacturer] = useState("");
   const [setBrand] = useState("");
+  const [isTabletRes, setTabletResStatus] = useState(false);
 
   const [filtederData, setfiltederData] = useState(data);
   const [isFiltered, setFilteredStatus] = useState(false);
@@ -26,6 +27,13 @@ const SearchPage = ({ loading, error, data }) => {
   } = useFilter(data, "name");
 
 
+  useLayoutEffect(() => {
+    if (window.innerWidth <= 768) {
+      setTabletResStatus(true);
+    } else {
+      setTabletResStatus(false);
+    }
+  }, []);
 
   const sortByManufacturer = (sortArg) => {
     if (sortArg === "nvidia" || sortArg === "amd") {
@@ -65,16 +73,15 @@ const SearchPage = ({ loading, error, data }) => {
           />
         </form>
         <div className="search__section">
-          <div className="search__list">
-            {loading ?
-              <Preloader />
-              :
-              error ? <h2 className="error">{`Error: ${error}`}</h2>
-                :
-                <CardList data={isFiltered ? filtederData : sortedItems} />
-            }
-          </div>
-          <div className={loading ? 'aside absolute' : 'aside'}>
+          {
+            loading ?
+              <div className="page__preloader"><Preloader /></div> :
+              error ? <h2 className="error">{`Error: ${error}`}</h2> :
+                <div className="search__list">
+                  <CardList data={isFiltered ? filtederData : sortedItems} />
+                </div>
+          }
+          <div className={loading && !isTabletRes ? 'aside absolute' : 'aside'}>
             <form className="filter" onSubmit={resetFilters} ref={filterForm}>
               <FilterMenu
                 loading={loading}
