@@ -7,7 +7,7 @@ const Input = ({ enteredSearchValue, setEnteredSearchValue, loading }) => {
       className="input"
       type="text"
       placeholder="Search..."
-      disabled={loading ? true : ""}
+      disabled={loading}
       value={enteredSearchValue}
       onChange={(e) => setEnteredSearchValue(e.target.value.trim())}
     />

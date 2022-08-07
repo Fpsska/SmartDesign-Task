@@ -26,38 +26,38 @@ const FilterMenu = ({ loading, isCreatePage, setManufacturer, setBrand, sortByMa
             <div className="filter__column">
                 <h4 className="filter__title">Manufacturer</h4>
                 <div className="filter__option">
-                    <input className="filter__radio" type="radio" name="producer" id="nvidia" required={isCreatePage ? true : ""} disabled={loading ? true : ""} onChange={handleManufacturer} />
+                    <input className="filter__radio" type="radio" name="producer" id="nvidia" required={isCreatePage} disabled={loading} onChange={handleManufacturer} />
                     <label className="filter__value" htmlFor="nvidia">NVIDIA</label>
                 </div>
                 <div className="filter__option">
-                    <input className="filter__radio" type="radio" name="producer" id="amd" required={isCreatePage ? true : ""} disabled={loading ? true : ""} onChange={handleManufacturer} />
+                    <input className="filter__radio" type="radio" name="producer" id="amd" required={isCreatePage} disabled={loading} onChange={handleManufacturer} />
                     <label className="filter__value" htmlFor="amd">AMD</label>
                 </div>
             </div>
             <div className="filter__column">
                 <h4 className="filter__title">Brand</h4>
                 <div className="filter__option">
-                    <input className="filter__radio" type="radio" name="brand" id="msi" required={isCreatePage ? true : ""} disabled={loading ? true : ""} onChange={handleBrand} />
+                    <input className="filter__radio" type="radio" name="brand" id="msi" required={isCreatePage} disabled={loading} onChange={handleBrand} />
                     <label className="create-from__value" htmlFor="msi">MSI</label>
                 </div>
                 <div className="filter__option">
-                    <input className="filter__radio" type="radio" name="brand" id="palit" required={isCreatePage ? true : ""} disabled={loading ? true : ""} onChange={handleBrand} />
+                    <input className="filter__radio" type="radio" name="brand" id="palit" required={isCreatePage} disabled={loading} onChange={handleBrand} />
                     <label className="filter__value" htmlFor="palit">PALIT</label>
                 </div>
                 <div className="filter__option">
-                    <input className="filter__radio" type="radio" name="brand" id="evga" required={isCreatePage ? true : ""} disabled={loading ? true : ""} onChange={handleBrand} />
+                    <input className="filter__radio" type="radio" name="brand" id="evga" required={isCreatePage} disabled={loading} onChange={handleBrand} />
                     <label className="filter__value" htmlFor="evga">EVGA</label>
                 </div>
                 <div className="filter__option">
-                    <input className="filter__radio" type="radio" name="brand" id="asus" required={isCreatePage ? true : ""} disabled={loading ? true : ""} onChange={handleBrand} />
+                    <input className="filter__radio" type="radio" name="brand" id="asus" required={isCreatePage} disabled={loading} onChange={handleBrand} />
                     <label className="filter__value" htmlFor="asus">ASUS</label>
                 </div>
                 <div className="filter__option">
-                    <input className="filter__radio" type="radio" name="brand" id="gigabyte" required={isCreatePage ? true : ""} disabled={loading ? true : ""} onChange={handleBrand} />
+                    <input className="filter__radio" type="radio" name="brand" id="gigabyte" required={isCreatePage} disabled={loading} onChange={handleBrand} />
                     <label className="filter__value" htmlFor="gigabyte">GIGABYTE</label>
                 </div>
                 <div className="filter__option">
-                    <input className="filter__radio" type="radio" name="brand" id="asrock" required={isCreatePage ? true : ""} disabled={loading ? true : ""} onChange={handleBrand} />
+                    <input className="filter__radio" type="radio" name="brand" id="asrock" required={isCreatePage} disabled={loading} onChange={handleBrand} />
                     <label className="filter__value" htmlFor="asrock">ASROCK</label>
                 </div>
             </div>
@@ -65,7 +65,7 @@ const FilterMenu = ({ loading, isCreatePage, setManufacturer, setBrand, sortByMa
                 isCreatePage ?
                     <></>
                     :
-                    <button className="filter__button" disabled={loading ? true : ""}>reset filters</button>
+                    <button className="filter__button" disabled={loading}>reset filters</button>
             }
         </>
     )
