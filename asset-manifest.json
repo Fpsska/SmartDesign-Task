@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/SmartDesign-Task/static/css/main.b7d83bb5.css",
-    "main.js": "/SmartDesign-Task/static/js/main.f04bcf80.js",
-    "static/js/787.c4e7f8f9.chunk.js": "/SmartDesign-Task/static/js/787.c4e7f8f9.chunk.js",
+    "main.css": "/SmartDesign-Task/static/css/main.db340730.css",
+    "main.js": "/SmartDesign-Task/static/js/main.ab084227.js",
+    "static/js/787.02c3f956.chunk.js": "/SmartDesign-Task/static/js/787.02c3f956.chunk.js",
     "index.html": "/SmartDesign-Task/index.html",
-    "main.b7d83bb5.css.map": "/SmartDesign-Task/static/css/main.b7d83bb5.css.map",
-    "main.f04bcf80.js.map": "/SmartDesign-Task/static/js/main.f04bcf80.js.map",
-    "787.c4e7f8f9.chunk.js.map": "/SmartDesign-Task/static/js/787.c4e7f8f9.chunk.js.map"
+    "main.db340730.css.map": "/SmartDesign-Task/static/css/main.db340730.css.map",
+    "main.ab084227.js.map": "/SmartDesign-Task/static/js/main.ab084227.js.map",
+    "787.02c3f956.chunk.js.map": "/SmartDesign-Task/static/js/787.02c3f956.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b7d83bb5.css",
-    "static/js/main.f04bcf80.js"
+    "static/css/main.db340730.css",
+    "static/js/main.ab084227.js"
   ]
 }
