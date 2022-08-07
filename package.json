@@ -1,6 +1,7 @@
 {
-  "name": "client",
+  "name": "smartdesign-task",
   "version": "0.1.0",
+  "author": "Fpsska",
   "private": true,
   "homepage": "https://Fpsska.github.io/SmartDesign-Task",
   "dependencies": {
