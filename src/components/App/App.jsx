@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { FetchMongoData } from "../../hooks/request";
+import { useDataFetch } from "../../hooks/useDataFetch";
 
 import Layout from '../common/Layout';
 import SearchPage from '../pages/SearchPage';
@@ -15,19 +15,18 @@ const App = () => {
 
   const [data, setData] = useState([]);
 
-  const { loading, error, request } = FetchMongoData();
-
-
-  const getGoodsData = async () => {
-    try {
-      const goodsData = await request("GET", "https://backend-smart-design-task.herokuapp.com/cards");
-      setData(goodsData);
-    } catch (error) {
-      console.error(`Error from component: ${error.message || error}`);
-    }
-  };
+  const { loading, error, request } = useDataFetch();
 
   useEffect(() => {
+    const getGoodsData = async () => {
+      try {
+        const data = await request("GET", "https://backend-smart-design-task.herokuapp.com/cards");
+        setData(data);
+      } catch (error) {
+        console.error(`Error from component: ${error.message || error}`);
+      }
+    };
+
     getGoodsData();
   }, []);
 

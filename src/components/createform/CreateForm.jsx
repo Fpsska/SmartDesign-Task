@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { FetchMongoData } from "../../hooks/request";
+import { useDataFetch } from "../../hooks/useDataFetch";
 import FilterMenu from "../common/filtermenu/FilterMenu";
 import "./createform.scss";
 
@@ -8,47 +8,37 @@ const CreateForm = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [preview, setPreview] = useState("");
+
   const [manufacturer, setManufacturer] = useState("");
   const [brand, setBrand] = useState("");
-  const { request } = FetchMongoData();
 
   const [isDisabled, setDisabledStatus] = useState(false);
-
   const [isCreatePage, setCreatePageStatus] = useState(true);
+
+  const { request } = useDataFetch();
 
   const formRef = useRef(!null);
 
-  const selectFile = (e) => {
-    setPreview(e.target.files[0].name);
-  };
 
-  const addGood = async () => {
-    if (name === "" || price === "" || preview === "" || manufacturer === "" || brand === ""
-    ) {
-      return;
-    } else {
-      const newItem = { name, price, preview, manufacturer, brand };
-      console.log(newItem);
-      try {
-        const data = await request(
-          "POST",
-          "https://backend-smart-design-task.herokuapp.com/cards",
-          newItem
-        );
-        console.log(data);
-      } catch (error) { }
-    }
-  };
-
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
+
+    // send POST request
+    const newItem = { name, price, preview, manufacturer, brand };
+
+    const response = await request(
+      "POST",
+      "https://backend-smart-design-task.herokuapp.com/cards",
+      newItem
+    );
+    console.log('sended data:', response);
+    alert("New good is successfully added! See on homepage!");
 
     // clear form
     formRef.current.reset();
     setName("");
     setPrice("");
     setPreview("");
-    alert("New good is successfully added! See Search Page!");
   };
 
   return (
@@ -71,8 +61,8 @@ const CreateForm = () => {
           <input
             className="create-from__input"
             type="text"
+            disabled={isDisabled}
             required
-            disabled={isDisabled ? true : ""}
             value={name}
             onChange={(e) => setName(e.target.value.toUpperCase())}
           />
@@ -83,8 +73,8 @@ const CreateForm = () => {
           <input
             className="create-from__input"
             type="number"
+            disabled={isDisabled}
             required
-            disabled={isDisabled ? true : ""}
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
@@ -96,16 +86,15 @@ const CreateForm = () => {
             className="create-from__input create-from__input--file"
             type="file"
             required
-            disabled={isDisabled ? true : ""}
-            onChange={selectFile}
+            disabled={isDisabled}
+            onChange={e => setPreview(e.target.files[0].name)}
           />
         </label>
       </fieldset>
 
       <button
         className="create-from__button"
-        disabled={isDisabled ? true : ""}
-        onClick={addGood}
+        disabled={isDisabled}
       >
         Add new good
       </button>
