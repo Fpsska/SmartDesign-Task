@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 
 export function useDebouce(value, delay) {
-    const [debValue, setValue] = useState(value)
+    const [debValue, setValue] = useState(value);
 
     useEffect(() => {
         const handler = setTimeout(() => {
-            setValue(value)
+            setValue(value);
         }, delay);
 
         return () => {
-            clearTimeout(handler)
+            clearTimeout(handler);
         }
-    }, [value, delay])
+    }, [value, delay]);
 
     return debValue;
 }

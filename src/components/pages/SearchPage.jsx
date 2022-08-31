@@ -1,15 +1,15 @@
 import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { useState } from "react";
 
-import { useFilter } from "../../hooks/filter";
+import { useFilter } from "../../hooks/useFilter";
 
 import { filterByManufacturer } from "../../helpers/filterByManufacturer";
 import { filterByBrand } from "../../helpers/filterByBrand";
 
-import Input from "../common/input/Input";
+import Input from "../input/Input";
 import CardList from "../card/CardList";
 import Preloader from "../common/preloader/Preloader";
-import FilterMenu from "../common/filtermenu/FilterMenu";
+import FilterMenu from "../filtermenu/FilterMenu";
 
 
 const SearchPage = ({ loading, error, data }) => {
@@ -34,14 +34,17 @@ const SearchPage = ({ loading, error, data }) => {
     formRef.current.reset();
   }
 
-
   useEffect(() => {
-    setFilteredData(filterByManufacturer(sortedItems, manufacturer));
-  }, [sortedItems, manufacturer]);
+    setFilteredData(sortedItems);
+  }, [sortedItems]);
 
-  useEffect(() => {
-    setFilteredData(filterByBrand(sortedItems, brand));
-  }, [sortedItems, brand]);
+  // useEffect(() => {
+  //   setFilteredData(filterByManufacturer(sortedItems, manufacturer));
+  // }, [manufacturer]);
+
+  // useEffect(() => {
+  //   setFilteredData(filterByBrand(sortedItems, brand));
+  // }, [brand]);
 
   useLayoutEffect(() => {
     window.innerWidth <= 768 ? setTabletResStatus(true) : setTabletResStatus(false)
@@ -51,7 +54,7 @@ const SearchPage = ({ loading, error, data }) => {
     <div className="search">
       <div className="search__wrapper">
         <h1 className="title">SEARCH PAGE</h1>
-        <form className="search__form">
+        <form className="search__form" onSubmit={e => e.preventDefault()}>
           <Input
             enteredSearchValue={enteredSearchValue}
             setEnteredSearchValue={setEnteredSearchValue}
@@ -68,7 +71,7 @@ const SearchPage = ({ loading, error, data }) => {
                   <CardList filteredData={filteredData} />
                 </div>
           }
-          <div className={loading && !isTabletRes ? 'aside absolute' : 'aside'}>
+          <aside className={loading && !isTabletRes ? 'aside absolute' : 'aside'}>
             <form className="filter" onSubmit={e => resetFilters(e)} ref={formRef}>
               <FilterMenu
                 loading={loading}
@@ -76,7 +79,7 @@ const SearchPage = ({ loading, error, data }) => {
                 setBrand={setBrand}
               />
             </form>
-          </div>
+          </aside>
         </div>
       </div>
     </div>

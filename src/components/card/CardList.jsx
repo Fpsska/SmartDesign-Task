@@ -13,11 +13,7 @@ const CardList = (props) => {
           return (
             <Card
               key={item._id}
-              name={item.name}
-              price={item.price}
-              preview={item.preview}
-              manufacturer={item.manufacturer}
-              brand={item.brand}
+              {...item}
             />
           );
         })

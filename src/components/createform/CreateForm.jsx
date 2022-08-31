@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useDataFetch } from "../../hooks/useDataFetch";
-import FilterMenu from "../common/filtermenu/FilterMenu";
+import FilterMenu from "../filtermenu/FilterMenu";
 import "./createform.scss";
 
 const CreateForm = () => {
