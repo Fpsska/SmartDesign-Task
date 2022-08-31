@@ -1,34 +1,19 @@
-import React, { useRef } from "react"
+import React from "react"
 import "./filtermenu.scss"
 
 const FilterMenu = (props) => {
 
     const {
         loading,
-        sortedItems,
-
         isCreatePage,
         setManufacturer,
-        setBrand,
-        setFilteredData
+        setBrand
     } = props;
 
-    const formRef = useRef(!null);
-
-    const resetFilters = (e) => {
-        e.preventDefault();
-
-        setFilteredData(sortedItems);
-
-        // clear form
-        formRef.current.reset();
-    }
-
-
     return (
-        <form className="filter" onSubmit={e => resetFilters(e)} ref={formRef}>
-            <div className="filter__column">
-                <h4 className="filter__title">Manufacturer</h4>
+        <>
+            <fieldset className="filter__column">
+                <legend className="filter__title">Manufacturer</legend>
                 <div className="filter__option">
                     <input
                         className="filter__radio"
@@ -53,9 +38,9 @@ const FilterMenu = (props) => {
                     />
                     <label className="filter__label" htmlFor="amd">AMD</label>
                 </div>
-            </div>
-            <div className="filter__column">
-                <h4 className="filter__title">Brand</h4>
+            </fieldset>
+            <fieldset className="filter__column">
+                <legend className="filter__title">Brand</legend>
                 <div className="filter__option">
                     <input
                         className="filter__radio"
@@ -128,14 +113,14 @@ const FilterMenu = (props) => {
                     />
                     <label className="filter__label" htmlFor="asrock">ASROCK</label>
                 </div>
-            </div>
+            </fieldset>
             {
                 isCreatePage ?
                     <></>
                     :
                     <button className="filter__button" disabled={loading}>reset filters</button>
             }
-        </form>
+        </>
     )
 }
 

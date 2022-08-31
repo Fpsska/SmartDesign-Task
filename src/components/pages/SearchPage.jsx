@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { useState } from "react";
 
 import { useFilter } from "../../hooks/filter";
@@ -22,6 +22,18 @@ const SearchPage = ({ loading, error, data }) => {
 
   const [filteredData, setFilteredData] = useState(sortedItems);
 
+  const formRef = useRef(!null);
+
+
+  const resetFilters = (e) => {
+    e.preventDefault();
+
+    setFilteredData(sortedItems);
+
+    // clear form
+    formRef.current.reset();
+  }
+
 
   useEffect(() => {
     setFilteredData(filterByManufacturer(sortedItems, manufacturer));
@@ -31,14 +43,8 @@ const SearchPage = ({ loading, error, data }) => {
     setFilteredData(filterByBrand(sortedItems, brand));
   }, [sortedItems, brand]);
 
-
-
   useLayoutEffect(() => {
-    if (window.innerWidth <= 768) {
-      setTabletResStatus(true);
-    } else {
-      setTabletResStatus(false);
-    }
+    window.innerWidth <= 768 ? setTabletResStatus(true) : setTabletResStatus(false)
   }, []);
 
   return (
@@ -63,14 +69,13 @@ const SearchPage = ({ loading, error, data }) => {
                 </div>
           }
           <div className={loading && !isTabletRes ? 'aside absolute' : 'aside'}>
-            <FilterMenu
-              loading={loading}
-              sortedItems={sortedItems}
-
-              setManufacturer={setManufacturer}
-              setBrand={setBrand}
-              setFilteredData={setFilteredData}
-            />
+            <form className="filter" onSubmit={e => resetFilters(e)} ref={formRef}>
+              <FilterMenu
+                loading={loading}
+                setManufacturer={setManufacturer}
+                setBrand={setBrand}
+              />
+            </form>
           </div>
         </div>
       </div>

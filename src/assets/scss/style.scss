@@ -9,6 +9,7 @@
 html {
     font-size: 16px;
 }
+
 body {
     background-color: #CCCCCC;
     color: #000;
@@ -26,17 +27,27 @@ li {
     margin: 0;
     list-style: none;
 }
+
 a {
     text-decoration: none;
 }
+
 input {
     padding: 2px 5px;
     &:focus {
         outline: none;
     }
 }
+
 button {
     cursor: pointer;
+}
+
+fieldset {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
 }
 
 // /.NULLSTYLES

@@ -5,16 +5,12 @@
         display: flex;
         flex-direction: column;
     }
-    &__option {
-        &:not(:last-child) {
-            margin: 0 0 5px 0;
-        }
-    }
     &__radio {
         margin: 0 10px 0 0;
     }
-    &__name, &__price {
+    &__input {
         width: 100%;
+        margin: 5px 0;
     }
     &__input--file {
         padding: 0;

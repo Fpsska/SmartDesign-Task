@@ -4,6 +4,7 @@ import FilterMenu from "../common/filtermenu/FilterMenu";
 import "./createform.scss";
 
 const CreateForm = () => {
+
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [preview, setPreview] = useState("");
@@ -15,7 +16,7 @@ const CreateForm = () => {
 
   const [isCreatePage, setCreatePageStatus] = useState(true);
 
-  const form = useRef(null);
+  const formRef = useRef(!null);
 
   const selectFile = (e) => {
     setPreview(e.target.files[0].name);
@@ -41,7 +42,9 @@ const CreateForm = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    form.current.reset();
+
+    // clear form
+    formRef.current.reset();
     setName("");
     setPrice("");
     setPreview("");
@@ -51,9 +54,8 @@ const CreateForm = () => {
   return (
     <form
       className="create-from"
-      action=""
-      onSubmit={handleFormSubmit}
-      ref={form}
+      onSubmit={e => handleFormSubmit(e)}
+      ref={formRef}
     >
       <div className="filter">
         <FilterMenu
@@ -62,46 +64,44 @@ const CreateForm = () => {
           setBrand={setBrand}
         />
       </div>
-      <div className="create-from__column">
-        <h4 className="create-from__name">Name</h4>
-        <div className="create-from__option">
+
+      <fieldset className="create-form__inputs">
+        <label className="create-from__label">
+          <span>Name</span>
           <input
-            className="create-from__name"
+            className="create-from__input"
             type="text"
             required
             disabled={isDisabled ? true : ""}
             value={name}
             onChange={(e) => setName(e.target.value.toUpperCase())}
           />
-        </div>
-      </div>
+        </label>
 
-      <div className="create-from__column">
-        <h4 className="create-from__name">Price</h4>
-        <div className="create-from__option">
+        <label className="create-from__label">
+          <span>Price</span>
           <input
-            className="create-from__price"
+            className="create-from__input"
             type="number"
             required
             disabled={isDisabled ? true : ""}
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-        </div>
-      </div>
+        </label>
 
-      <div className="create-from__column">
-        <h4 className="create-from__name">Photo</h4>
-        <div className="create-from__option">
+        <label className="create-from__label">
+          <span>Photo</span>
           <input
-            className="create-from__input--file"
+            className="create-from__input create-from__input--file"
             type="file"
             required
             disabled={isDisabled ? true : ""}
             onChange={selectFile}
           />
-        </div>
-      </div>
+        </label>
+      </fieldset>
+
       <button
         className="create-from__button"
         disabled={isDisabled ? true : ""}
