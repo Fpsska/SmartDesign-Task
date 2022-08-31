@@ -7,11 +7,15 @@
             margin: 0 0 5px 0;
         }
     }
+    &__option > * {
+        cursor: pointer;
+    }
     &__radio {
         margin: 0 5px 0 0;
     }
     &__title {
         margin: 18px 0 18px 0;
+        cursor: pointer;
     }
     &__button {
         margin: 20px 0 0 0;
