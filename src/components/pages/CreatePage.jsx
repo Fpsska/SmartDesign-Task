@@ -3,14 +3,14 @@ import CreateForm from "../createform/CreateForm";
 
 const CreatePage = () => {
     return (
-        <div className="create">
+        <section className="create">
             <div className="create__wrapper">
                 <h1 className="title">CREATE PAGE</h1>
                 <div className="create__section">
                     <CreateForm />
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

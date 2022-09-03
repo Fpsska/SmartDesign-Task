@@ -51,7 +51,7 @@ const SearchPage = ({ loading, error, data }) => {
   }, []);
 
   return (
-    <div className="search">
+    <section className="search">
       <div className="search__wrapper">
         <h1 className="title">SEARCH PAGE</h1>
         <form className="search__form" onSubmit={e => e.preventDefault()}>
@@ -71,7 +71,7 @@ const SearchPage = ({ loading, error, data }) => {
                   <CardList filteredData={filteredData} />
                 </div>
           }
-          <aside className={loading && !isTabletRes ? 'aside absolute' : 'aside'}>
+          <div className={loading && !isTabletRes ? 'aside absolute' : 'aside'}>
             <form className="filter" onSubmit={e => resetFilters(e)} ref={formRef}>
               <FilterMenu
                 loading={loading}
@@ -79,10 +79,10 @@ const SearchPage = ({ loading, error, data }) => {
                 setBrand={setBrand}
               />
             </form>
-          </aside>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
